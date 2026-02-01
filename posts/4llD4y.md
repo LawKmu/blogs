@@ -2,7 +2,7 @@
 title: "4llDay writeup"
 date: "2026-02-01"
 excerpt: "4llDay CTF Challenge Writeup"
-coverImage: "https://example.com/image.jpg"
+coverImage: "https://github.com/LawKmu/blogs/blob/master/images/4llDay.png"
 tags: ["web", "ctf", "writeup"]
 ---
 # 4llD4y CTF Challenge Writeup
