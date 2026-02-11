@@ -1,7 +1,7 @@
 ---
 title: "Web Cache Deception: Bending the Rules of Web Cache Exploitation"
 date: "2026-02-11"
-excerpt: "Web Cache Deception (WCD) isn't a code flaw—it's an architectural trap. Learn how parsing mismatches turn private data into public static files."
+excerpt: "Web Cache Deception (WCD) isn't a code flaw it's an architectural trap. Learn how parsing mismatches turn private data into public static files."
 coverImage: "https://raw.githubusercontent.com/LawKmu/blogs/refs/heads/master/images/web_cache1.png"
 tags: ["web", "vulnerability", "cybersecurity", "web-cache-deception"]
 ---
