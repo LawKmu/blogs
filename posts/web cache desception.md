@@ -119,32 +119,10 @@ Normalization is how a server "cleans up" a URL (e.g., resolving `/../`). If the
 
 ## Prevention Strategies
 
-<table style="width:100%; border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th style="border: 1px solid #ddd; padding: 8px;">Strategy</th>
-      <th style="border: 1px solid #ddd; padding: 8px;">Implementation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;"><b>Strict Cache Rules</b></td>
-      <td style="border: 1px solid #ddd; padding: 8px;">Only cache files from specific folders like /static/.</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;"><b>Header Control</b></td>
-      <td style="border: 1px solid #ddd; padding: 8px;">Force Cache-Control: no-store, private on sensitive pages.</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;"><b>Disable Path Info</b></td>
-      <td style="border: 1px solid #ddd; padding: 8px;">Configure origin servers to reject requests with extra path info.</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;"><b>Consistency</b></td>
-      <td style="border: 1px solid #ddd; padding: 8px;">Ensure both layers use identical URL normalization logic.</td>
-    </tr>
-  </tbody>
-</table>
+* **Strict Cache Rules:** Only cache files from specific, authorized folders such as `/static/`.
+* **Header Control:** Force `Cache-Control: no-store, private` on all sensitive pages to prevent data storage.
+* **Disable Path Info:** Configure origin servers to reject any incoming requests that contain extra path information.
+* **Consistency:** Ensure both the cache and origin layers use identical URL normalization logic to avoid discrepancies.
 ---
 
 ## Summary
