@@ -46,7 +46,7 @@ The attack is conceptually simple. Imagine you are logged into your bank. Your p
 
 To boost speed, the bank caches files ending in: `.css`, `.js`, `.png`, `.jpg`.
 
-An attacker crafts a URL like this: `https://bank.com/account/profile/nonexistent.css`
+An attacker crafts a URL like this: ```https://bank.com/account/profile/nonexistent.css```
 
 1.  **The Cache** sees `.css` at the end. It thinks: *"This is a stylesheet. If the server returns a 200 OK, I'll cache it for everyone."*
 2.  **The Origin Server** receives the request. Due to flexible routing, it ignores the `/nonexistent.css` suffix and serves your **private profile page**.
@@ -119,13 +119,32 @@ Normalization is how a server "cleans up" a URL (e.g., resolving `/../`). If the
 
 ## Prevention Strategies
 
-| Strategy | Implementation |
-| :--- | :--- |
-| **Strict Cache Rules** | Only cache files from specific folders like `/static/`. |
-| **Header Control** | Force `Cache-Control: no-store, private` on sensitive pages. |
-| **Disable Path Info** | Configure origin servers to reject requests with extra path info. |
-| **Consistency** | Ensure both layers use identical URL normalization logic. |
-
+<table style="width:100%; border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #ddd; padding: 8px;">Strategy</th>
+      <th style="border: 1px solid #ddd; padding: 8px;">Implementation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;"><b>Strict Cache Rules</b></td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Only cache files from specific folders like /static/.</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;"><b>Header Control</b></td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Force Cache-Control: no-store, private on sensitive pages.</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;"><b>Disable Path Info</b></td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Configure origin servers to reject requests with extra path info.</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;"><b>Consistency</b></td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Ensure both layers use identical URL normalization logic.</td>
+    </tr>
+  </tbody>
+</table>
 ---
 
 ## Summary
