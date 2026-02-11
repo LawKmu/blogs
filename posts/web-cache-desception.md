@@ -1,7 +1,7 @@
 ---
 title: "Web Cache Deception: Bending the Rules of Web Cache Exploitation"
 date: "2026-02-11"
-excerpt: "Web Cache Deception (WCD) isn't a code flaw—it's an architectural trap. Learn how parsing mismatches turn private data into public static files."
+excerpt: "Web Cache Deception (WCD) isn't a code flaw it's an architectural trap. Learn how parsing mismatches turn private data into public static files."
 coverImage: "https://raw.githubusercontent.com/LawKmu/blogs/refs/heads/master/images/web_cache1.png"
 tags: ["web", "vulnerability", "cybersecurity", "web-cache-deception"]
 ---
@@ -46,7 +46,7 @@ The attack is conceptually simple. Imagine you are logged into your bank. Your p
 
 To boost speed, the bank caches files ending in: `.css`, `.js`, `.png`, `.jpg`.
 
-An attacker crafts a URL like this: `https://bank.com/account/profile/nonexistent.css`
+An attacker crafts a URL like this: ```https://bank.com/account/profile/nonexistent.css```
 
 1.  **The Cache** sees `.css` at the end. It thinks: *"This is a stylesheet. If the server returns a 200 OK, I'll cache it for everyone."*
 2.  **The Origin Server** receives the request. Due to flexible routing, it ignores the `/nonexistent.css` suffix and serves your **private profile page**.
@@ -119,13 +119,10 @@ Normalization is how a server "cleans up" a URL (e.g., resolving `/../`). If the
 
 ## Prevention Strategies
 
-| Strategy | Implementation |
-| :--- | :--- |
-| **Strict Cache Rules** | Only cache files from specific folders like `/static/`. |
-| **Header Control** | Force `Cache-Control: no-store, private` on sensitive pages. |
-| **Disable Path Info** | Configure origin servers to reject requests with extra path info. |
-| **Consistency** | Ensure both layers use identical URL normalization logic. |
-
+* **Strict Cache Rules:** Only cache files from specific, authorized folders such as `/static/`.
+* **Header Control:** Force `Cache-Control: no-store, private` on all sensitive pages to prevent data storage.
+* **Disable Path Info:** Configure origin servers to reject any incoming requests that contain extra path information.
+* **Consistency:** Ensure both the cache and origin layers use identical URL normalization logic to avoid discrepancies.
 ---
 
 ## Summary
